@@ -34,10 +34,19 @@ body {
   overflow-x: hidden;
 }
 
+        /* --- Hero --- */
+        .hero {
+            min-height: 100vh;
+            min-height: 100svh; /* tager højde for adresselinjen på mobil */
+            margin: -20px -40px 60px; /* ophæver body-padding, så billedet går helt ud til kanten */
+            padding: 20px 40px;
+            background: url('images/hero.webp') center / cover no-repeat;
+        }
+
         /* --- Header / Navigation --- */
         header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* logo i midten */
             align-items: center;
             padding: 10px 0;
             margin-bottom: 40px;
@@ -45,26 +54,11 @@ body {
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-family: 'Antonio', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
             letter-spacing: 0.01em;
             text-transform: uppercase;
-        }
-
-        .cart-icon img {
-            width: 24px;
-            height: auto;
-            cursor: pointer;
-        }
-
-        /* --- Main Content --- */
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         h1 {
@@ -78,38 +72,9 @@ body {
             opacity: 0.9;
         }
 
-/* --- Text and CTA --- */
-        .description {
-            font-size: 2rem;
-            font-weight: 400;
-            text-align: center;
-            max-width: 700px;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            color: #332E29;
-        }
-
-        .cta-btn {
-            background-color: #3D3529;
-            color: #ffffff;
-            padding: 14px 40px;
-            border: none;
-            border-radius: 30px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .cta-btn:hover {
-            transform: scale(1.05);
-        }
-
         /* --- Responsivitet (Mobil) --- */
         @media (max-width: 768px) {
             h1 { font-size: 3.5rem; }
-            header { flex-direction: column; gap: 20px; }
         }
   
 /* --- Layout Container --- */
@@ -154,13 +119,6 @@ body {
     letter-spacing: 0.01em;
     margin-bottom: 30px;
     color: #332E29;
-}
-
-.description {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    opacity: 0.95;
 }
 
 .cta-button {
@@ -856,9 +814,5 @@ color: #332E29;
   .cart-toast { bottom: 18px; padding: 10px 14px; font-size: 14px; }
 }
 
-/* Ensure main content fills available height */
-main {
-  flex: 1 0 auto;
-}
 
 
