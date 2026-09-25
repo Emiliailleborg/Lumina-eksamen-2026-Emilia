@@ -348,8 +348,6 @@ body {
     align-items: center;
     gap: 60px;
     padding: 50px;
-    background-color: #ffffff;
-    border-radius: 20px;
 }
 
 /* Fast ramme, så kortet ikke ændrer størrelse når billedet skifter */
@@ -451,32 +449,29 @@ body {
 
 /* --- Productinformation Section --- */
 .product-info-section {
-    padding: 80px 20px;
-    background-color: #E8E4E1;
+    margin: 0 -40px; /* ophæver body-padding, så billedet kan gå helt ud til kanten */
+    padding: 80px 0 80px 50px; /* luft til teksten i venstre side, ingen i højre */
+    background-color: #C2BFBD;
 }
 
 .product-info-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
-    max-width: 1400px;
-    margin: 0 auto;
     align-items: center;
 }
 
 .info-image {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* billedet helt ud til højre kant */
     align-items: center;
-    padding-left: 60px; 
 }
 
 .info-image img {
     width: 100%;
-    max-width: 450px;
-    border-radius: 30px;
+    max-width: 600px;
     height: auto;
-    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.15));
+    display: block;
 }
 
 .info-content {
