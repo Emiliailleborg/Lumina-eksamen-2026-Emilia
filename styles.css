@@ -416,6 +416,14 @@ body {
     gap: 16px;
 }
 
+/* Køb nu-knap: bruger .hero-btn til udseendet */
+.product-buy {
+    display: inline-block;
+    margin-top: 40px;
+    border: none;
+    cursor: pointer;
+}
+
 .color-swatch {
     width: 50px;
     height: 50px;
