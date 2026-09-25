@@ -20,6 +20,10 @@
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -41,6 +45,83 @@ body {
             margin: -20px -40px 60px; /* ophæver body-padding, så billedet går helt ud til kanten */
             padding: 20px 40px;
             background: url('images/hero.webp') center / cover no-repeat;
+            position: relative; /* så bundlinjen kan placeres i bunden */
+        }
+
+        /* Bundlinje: knap nede til venstre, stjerner nede til højre */
+        .hero-bottom {
+            position: absolute;
+            left: 50px;
+            right: 50px;
+            bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end; /* begge sidder i bunden */
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .hero-btn {
+            background-color: #3D3529;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 0.01em;
+            padding: 16px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        /* Tekst og knap stablet, venstrestillet */
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 24px;
+            margin-bottom: 80px; /* løfter tekst og knap helt op over stjernernes højde */
+        }
+
+        .hero-text {
+            width: min-content; /* teksten bliver aldrig bredere end første linje */
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 400;
+            font-size: 28px;
+            line-height: 1.5;
+            letter-spacing: 0.01em;
+            text-align: left;
+        }
+
+        /* Første linje slutter efter "18" og bestemmer tekstens bredde */
+        .hero-text-line {
+            white-space: nowrap;
+        }
+
+        .hero-btn:hover {
+            background-color: rgba(61, 53, 41, 0.5); /* #3D3529 med 50% */
+        }
+
+        .hero-stars {
+            width: 220px;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero-bottom {
+                left: 20px;
+                right: 20px;
+                bottom: 20px;
+            }
+
+            .hero-cta {
+                margin-bottom: 55px;
+            }
+
+            .hero-stars {
+                width: 150px;
+            }
         }
 
         /* --- Header / Navigation --- */
