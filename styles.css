@@ -623,8 +623,17 @@ body {
 .gallery-section h1 {
     text-align: center;
     font-size: 48px;
-    margin-bottom: 40px;
-    color: #332E29; 
+    margin-bottom: 0;
+    color: #332E29;
+    position: relative;
+    z-index: 1; /* overskriften ligger oven på billedets hvide kant */
+}
+
+.social-image {
+    display: block;
+    margin-top: -4%; /* trækker billedet op, da filen har hvid luft øverst */
+    width: 100%;
+    height: auto;
 }
 
 /* FOOTER STYLING */
