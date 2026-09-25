@@ -666,55 +666,6 @@ body {
     font-weight: bold;
 }
 
-/* SUBSCRIBE SECTION */
-
-.subscribe {
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.subscribe-section {
-    text-align: center;
-    padding: 80px 20px;
-}
-
-.subscribe-section h1 {
-    font-size: 70px;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    color: #332E29;
-    margin-bottom: 20px;
-}
-
-.subscribe-section .subtext {
-    font-size: 16px;
-    margin-bottom: 35px;
-}
-
-.input-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.input-wrapper input {
-    width: 280px;
-    padding: 14px;
-    border-radius: 12px;
-    border: none;
-    background: #d9dce2;
-    font-size: 14px;
-}
-
-.input-wrapper button {
-    background: #f4b8ab;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 12px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
 /* FOOTER STYLING */
 footer {
   width: 100%;
