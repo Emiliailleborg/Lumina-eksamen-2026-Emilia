@@ -50,3 +50,121 @@ function initBuyButtons() {
 // Init ved load + re-init hvis DOM senere ændres
 document.addEventListener('DOMContentLoaded', initBuyButtons);
 // Hvis du dynamisk indsætter produkter kan du køre initBuyButtons() igen efter indsættelse
+
+// SØGEFUNKTION
+
+const searchToggle = document.getElementById('search-toggle');
+const searchBar = document.getElementById('search-bar');
+const searchInput = document.getElementById('search-input');
+const searchCount = document.getElementById('search-count');
+const searchClose = document.getElementById('search-close');
+
+let searchHits = [];  // alle markerede fund på siden
+let currentHit = -1;  // det fund der er valgt lige nu
+
+// Fjern markeringer fra sidste søgning
+function clearSearch() {
+  document.querySelectorAll('mark.search-hit').forEach(mark => {
+    mark.replaceWith(document.createTextNode(mark.textContent));
+  });
+  document.body.normalize(); // samler tekststykkerne igen
+  searchHits = [];
+  currentHit = -1;
+  searchCount.textContent = '';
+}
+
+// Find alle steder på siden hvor ordet står, og marker dem
+function highlightMatches(term) {
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      // Søg ikke i scripts, styles eller selve søgefeltet
+      if (!parent || parent.closest('script, style, .search-bar')) return NodeFilter.FILTER_REJECT;
+      return node.textContent.toLowerCase().includes(term) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+    }
+  });
+
+  const textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+  textNodes.forEach(node => {
+    const text = node.textContent;
+    const lower = text.toLowerCase();
+    const fragment = document.createDocumentFragment();
+    let start = 0;
+    let index = lower.indexOf(term);
+
+    while (index !== -1) {
+      fragment.append(text.slice(start, index));
+      const mark = document.createElement('mark');
+      mark.className = 'search-hit';
+      mark.textContent = text.slice(index, index + term.length);
+      fragment.append(mark);
+      searchHits.push(mark);
+      start = index + term.length;
+      index = lower.indexOf(term, start);
+    }
+
+    fragment.append(text.slice(start));
+    node.replaceWith(fragment);
+  });
+}
+
+// Scroll hen til et fund og vis "2 af 5"
+function goToHit(index) {
+  if (searchHits.length === 0) return;
+  if (currentHit !== -1) searchHits[currentHit].classList.remove('current');
+
+  // Start forfra når man når det sidste fund
+  currentHit = (index + searchHits.length) % searchHits.length;
+  const hit = searchHits[currentHit];
+  hit.classList.add('current');
+  hit.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  searchCount.textContent = `${currentHit + 1} af ${searchHits.length}`;
+}
+
+function runSearch() {
+  clearSearch();
+  const term = searchInput.value.trim().toLowerCase();
+  if (term.length < 2) return; // vent til der er skrevet mindst 2 tegn
+
+  highlightMatches(term);
+  if (searchHits.length === 0) {
+    searchCount.textContent = 'Ingen resultater';
+    return;
+  }
+  goToHit(0);
+}
+
+function openSearch() {
+  searchBar.hidden = false;
+  searchInput.focus();
+}
+
+function closeSearch() {
+  clearSearch();
+  searchInput.value = '';
+  searchBar.hidden = true;
+}
+
+// Søgefeltet findes kun på forsiden
+if (searchToggle && searchBar) {
+  searchToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    openSearch();
+  });
+
+  searchInput.addEventListener('input', runSearch);
+
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      // Enter = næste fund, Shift + Enter = forrige fund
+      goToHit(e.shiftKey ? currentHit - 1 : currentHit + 1);
+    } else if (e.key === 'Escape') {
+      closeSearch();
+    }
+  });
+
+  searchClose.addEventListener('click', closeSearch);
+}
