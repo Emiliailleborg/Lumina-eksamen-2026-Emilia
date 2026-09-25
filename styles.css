@@ -572,19 +572,25 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  max-width: 1400px;
-  margin: -80px auto 80px;
-  padding: 0 60px;
+  /* ingen max-width, så teksten flugter med de andre afsnit */
+  margin: 80px -40px; /* luft over og under, og ophæver body-padding i siderne */
+  padding: 0 150px; /* 150px fra kanten i hver side */
 }
 
 .split-text {
-  flex: 1;
+  flex: 0 0 auto;
+  width: min-content; /* teksten bliver aldrig bredere end første linje */
   color: #332E29;
+}
+
+/* Første linje slutter efter "funktion," og bestemmer tekstens bredde */
+.split-text-line {
+  white-space: nowrap;
 }
 
 .split-text h1 {
   font-family: 'Antonio', sans-serif;
-  font-size: 2rem; 
+  font-size: 1rem; /* halvt så stor som før (2rem) */
   color: #332E29;
   text-transform: uppercase;
   letter-spacing: 0.01em;
@@ -617,10 +623,17 @@ body {
     flex-direction: column;
     text-align: center;
     padding: 0 20px;
-    margin: 40px auto;
+    margin: 40px -40px;
   }
   .split-text p {
     margin: 0 auto 24px;
+  }
+  /* På mobil må første linje gerne ombrydes, så teksten ikke går ud over skærmen */
+  .split-text {
+    width: auto;
+  }
+  .split-text-line {
+    white-space: normal;
   }
 }
 
@@ -766,7 +779,7 @@ footer .copyright {
 .headline-left {
   display: block;
   text-align: left;     
-  margin: 0 0 20px 0;   
+  margin: 0 0 6px 0; /* tættere på overskriften */   
   transform: none;      
 }
 
@@ -777,7 +790,7 @@ footer .copyright {
 
 .split-text .headline-left,
 .headline-left {
-  color: #332E29; 
+  color: #ED5DCD; 
 }
 
 * {
