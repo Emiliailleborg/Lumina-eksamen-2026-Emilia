@@ -2,7 +2,7 @@
 
 /* --- General Settings --- */
         :root {
-            --bg-color: #cfbdae; /* The beige background color */
+            --bg-color: #E8E4E1; /* The beige background color */
             --text-color: #ffffff;
             --btn-bg: #f5f0e6;   /* Light cream for buttons */
             --btn-text: #bcaaa0; /* Darker tone for button text */
@@ -41,12 +41,13 @@ body {
             align-items: center;
             padding: 10px 0;
             margin-bottom: 40px;
+            color: #f4efea;
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: 800;
-            letter-spacing: 1px;
+            letter-spacing: 0.01em;
             text-transform: uppercase;
         }
 
@@ -70,22 +71,22 @@ body {
             font-family: 'Antonio', sans-serif; 
             font-size: 6rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 0.01em;
             margin-bottom: 40px;
             text-align: center;
-            color: #fdfcf5; 
+            color: #332E29; 
             opacity: 0.9;
         }
 
 /* --- Text and CTA --- */
         .description {
             font-size: 2rem;
-            font-weight: 600;
+            font-weight: 400;
             text-align: center;
             max-width: 700px;
-            line-height: 1.8;
+            line-height: 1.6;
             margin-bottom: 25px;
-            color: #fff;
+            color: #332E29;
         }
 
         .cta-btn {
@@ -95,7 +96,7 @@ body {
             border: none;
             border-radius: 30px;
             font-size: 0.95rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             cursor: pointer;
             transition: transform 0.3s;
@@ -125,24 +126,24 @@ body {
 
 .content-left {
     flex: 1 1 0%;
-    color: #ffffff;
+    color: #332E29;
 }
 
 .sub-heading {
     font-family: 'Antonio', sans-serif;
     font-size: 1.5rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.01em;
     margin-top: 40px;
     margin-bottom: 15px;
-    color: #D88373;
+    color: #332E29;
 }
 
 .headline-sub {
     font-family: 'Antonio', sans-serif;
     font-size: 2rem;;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0.01em;
     margin-bottom: 20px;
 }
 
@@ -150,14 +151,14 @@ body {
     font-family: 'Antonio', sans-serif;
     font-size: 5rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0.01em;
     margin-bottom: 30px;
-    color: #fdfcf5;
+    color: #332E29;
 }
 
 .description {
     font-size: 1rem;
-    line-height: 1.8;
+    line-height: 1.6;
     margin-bottom: 25px;
     opacity: 0.95;
 }
@@ -165,12 +166,12 @@ body {
 .cta-button {
     display: inline-block;
     background-color: #f5f0e6;
-    color: #a08f7f;
+    color: #332E29;
     padding: 12px 30px;
     border: none;
     border-radius: 25px;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
     transition: transform 0.3s;
@@ -204,7 +205,7 @@ body {
     overflow-y: hidden;
     white-space: nowrap;
     padding: 50px 0; 
-    background-color: #D0BBA6;
+    background-color: #E8E4E1;
     text-align: right;
     margin-top: 0;
 }
@@ -217,8 +218,8 @@ body {
 }
 
 body {
-    background: #d8c2a7;
-    font-family: Arial, sans-serif;
+    background: #E8E4E1;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .large-image-section {
@@ -239,11 +240,11 @@ body {
 }
 
 .hero-title {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Antonio', sans-serif;
     font-size: 6rem;
-    color: white;
+    color: #332E29;
     margin-bottom: 10px;
-    letter-spacing: 2px;
+    letter-spacing: 0.01em;
 }
 
 .hero-image {
@@ -258,7 +259,7 @@ body {
 /* --- Product Cards Section --- */
 .products-section {
     padding: 80px 20px;
-    background-color: #D0BBA6;
+    background-color: #E8E4E1;
 }
 
 .products-grid {
@@ -301,20 +302,20 @@ body {
 .product-title {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #333;
+    color: #332E29;
     margin-bottom: 5px;
 }
 
 .product-subtitle {
     font-size: 0.95rem;
-    color: #666;
+    color: #332E29;
     margin-bottom: 10px;
 }
 
 .product-price {
     font-size: 1rem;
     font-weight: 600;
-    color: #333;
+    color: #332E29;
     margin-bottom: 15px;
 }
 
@@ -323,12 +324,12 @@ body {
     padding: 12px;
     border: none;
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.95rem;
     cursor: pointer;
     transition: opacity 0.3s ease;
     background-color: #E8DDD0;
-    color: #333;
+    color: #332E29;
 }
 
 .buy-button:hover {
@@ -361,7 +362,7 @@ body {
 /* --- Productinformation Section --- */
 .product-info-section {
     padding: 80px 20px;
-    background-color: #D0BBA6;
+    background-color: #E8E4E1;
 }
 
 .product-info-container {
@@ -389,15 +390,15 @@ body {
 }
 
 .info-content {
-    color: #ffffff;
+    color: #332E29;
 }
 
 .info-title {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Antonio', sans-serif;
     font-size: 3.5rem;
-    color: #3D3529;
+    color: #332E29;
     margin-bottom: 30px;
-    letter-spacing: 3px;
+    letter-spacing: 0.01em;
     line-height: 1;
 }
 
@@ -410,18 +411,18 @@ body {
 .info-list li {
     
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 1.6;
     margin-bottom: 15px;
     padding-left: 25px;
     position: relative;
-    color: #3D3529;
+    color: #332E29;
 }
 
 .info-list li::before {
     content: "•";
     position: absolute;
     left: 0;
-    color: #3D3529;
+    color: #332E29;
     font-size: 1.5rem;
     line-height: 1.2;
 }
@@ -450,21 +451,21 @@ body {
 
 .split-text {
   flex: 1;
-  color: #3D3529;
+  color: #332E29;
 }
 
 .split-text h1 {
   font-family: 'Antonio', sans-serif;
   font-size: 2rem; 
-  color: #3D3529;
+  color: #332E29;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 0.01em;
   margin-bottom: 20px;
 }
 
 .split-text p {
   font-size: 1rem;
-  line-height: 1.8; 
+  line-height: 1.6; 
   max-width: 520px;
   opacity: 0.9;
   margin-bottom: 34px;
@@ -508,11 +509,11 @@ body {
             font-size: 3rem; /* Large text */
             text-transform: uppercase;
             font-weight: bold;
-            color: #A69685; 
+            color: #332E29; 
             margin-bottom: 30px;
             margin-top: 0;
-            letter-spacing: 2px;
-            font-family: 'Oswald', sans-serif; 
+            letter-spacing: 0.01em;
+            font-family: 'Antonio', sans-serif; 
         }
 
 
@@ -533,7 +534,7 @@ body {
     text-align: center;
     font-size: 48px;
     margin-bottom: 40px;
-    color: #3D3529;; 
+    color: #332E29; 
 }
 
 /* Grid styling */
@@ -571,7 +572,7 @@ body {
     text-decoration: none;
     font-size: 18px;
     color: white;
-    letter-spacing: 1px;
+    letter-spacing: 0.01em;
     font-weight: bold;
 }
 
@@ -590,8 +591,8 @@ body {
 .subscribe-section h1 {
     font-size: 70px;
     font-weight: 700;
-    letter-spacing: 3px;
-    color: #3D3529;
+    letter-spacing: 0.01em;
+    color: #332E29;
     margin-bottom: 20px;
 }
 
@@ -631,7 +632,7 @@ footer {
   box-sizing: border-box;
   padding: 50px 120px 50px 70px;
   background-color: #bfb2a0;
-  color: #333333;
+  color: #332E29;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -656,6 +657,7 @@ footer {
 .footer-content li {
     margin-bottom: 8px;
     font-size: 14px;
+    font-weight: 500; /* Medium til navigation */
 }
 
 /* Payment methods */
@@ -726,19 +728,35 @@ footer .copyright {
 
 .split-text .headline-left,
 .headline-left {
-  color: rgb(250, 105, 129); 
+  color: #332E29; 
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 body {
-    background-color: #D0BBA6;
-    color: #f4efea;
+    background-color: #E8E4E1;
+    color: #332E29;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+}
+
+/* --- Typografi --- */
+/* Antonio Bold til H1 og H2 */
+h1, h2 {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 700;
+}
+
+/* Helvetica Neue Bold til knapper */
+button {
+    font-weight: 700;
+    letter-spacing: 0.01em;
 }
 
 .about-container {
@@ -752,12 +770,12 @@ body {
 
 .back-btn {
 background-color: #f5f0e6;
-            color: #a08f7f;
+            color: #332E29;
             padding: 14px 40px;
             border: none;
             border-radius: 30px;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             cursor: pointer;
             transition: transform 0.3s;
@@ -766,9 +784,9 @@ background-color: #f5f0e6;
 
 .title {
     font-size: 72px;
-    letter-spacing: 4px;
+    letter-spacing: 0.01em;
     margin-bottom: 40px;
-    color: #3D3529;
+    color: #332E29;
 }
 
 .content {
@@ -788,13 +806,13 @@ background-color: #f5f0e6;
     width: 50%;
     font-size: 18px;
     line-height: 1.6;
-color: #3D3529;
+color: #332E29;
 }
 
 .text-block h3 {
     margin-top: 20px;
     font-size: 22px;
-    color: #3D3529;
+    color: #332E29;
 }
 
 .product-section {
