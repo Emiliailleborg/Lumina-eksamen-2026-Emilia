@@ -50,28 +50,6 @@ body {
             text-transform: uppercase;
         }
 
-        nav {
-            display: flex;
-            gap: 15px;
-        }
-
-        nav a {
-            display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 34px;
-  border-radius: 999px;
-  background-color:  #AB9A80;
-  color: var(--text-color);                  
-  font-size: 1.02rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-        
-        nav a:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-        }
-
         .cart-icon img {
             width: 24px;
             height: auto;
@@ -131,7 +109,6 @@ body {
         @media (max-width: 768px) {
             h1 { font-size: 3.5rem; }
             header { flex-direction: column; gap: 20px; }
-            nav { flex-wrap: wrap; justify-content: center; }
         }
   
 /* --- Layout Container --- */
@@ -242,57 +219,6 @@ body {
 body {
     background: #d8c2a7;
     font-family: Arial, sans-serif;
-}
-
-.reviews {
-    display: flex;
-    gap: 20px;
-    padding: 40px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.card {
-    background: white;
-    border-radius: 12px;
-    padding: 20px 25px;
-    width: 300px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.stars {
-    color: #00b67a;
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-
-.card h3 {
-    margin: 0 0 10px;
-    font-size: 14px;
-    color: black;
-}
-
-.card p {
-    font-size: 14px;
-    line-height: 1.4;
-    color: #333;
-}
-
-.footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    font-size: 12px;
-    color: #666;
-}
-
-.review-text {
-    color: #6d6159;
-    font-size: 0.9rem;
-    margin-top: 5px;
-    padding: 0 15px;
-    white-space: normal;
-    text-align: center;
 }
 
 .large-image-section {
