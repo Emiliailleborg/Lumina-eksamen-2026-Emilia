@@ -227,7 +227,7 @@ body {
 
 .headline-sub {
     font-family: 'Antonio', sans-serif;
-    font-size: 2rem;;
+    font-size: 48px; /* samme som "Følg os på de sociale medier" */
     text-transform: uppercase;
     letter-spacing: 0.01em;
     margin-bottom: 20px;
@@ -492,7 +492,7 @@ body {
 
 .info-title {
     font-family: 'Antonio', sans-serif;
-    font-size: 3.5rem;
+    font-size: 48px; /* samme som "Følg os på de sociale medier" */
     color: #332E29;
     margin-bottom: 30px;
     letter-spacing: 0.01em;
@@ -555,10 +555,6 @@ body {
     .product-info-container {
         grid-template-columns: 1fr;
         gap: 40px;
-    }
-    
-    .info-title {
-        font-size: 2.5rem;
     }
 
     .info-content {
