@@ -981,3 +981,79 @@ mark.search-hit.current {
     background-color: #3D3529;
     color: #ffffff;
 }
+
+/* --- Kurv --- */
+.cart-popup {
+    position: absolute; /* placeres i hero, lige under "Kurv" */
+    top: 110px;
+    right: 50px;
+    width: min(380px, calc(100% - 32px));
+    padding: 20px;
+    background-color: #E8E4E1;
+    color: #332E29;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    z-index: 900;
+}
+
+.cart-popup[hidden] {
+    display: none;
+}
+
+.cart-empty {
+    font-size: 16px;
+    text-align: center;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(51, 46, 41, 0.2);
+}
+
+.cart-item img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.cart-item-info {
+    flex: 1;
+    font-size: 14px;
+}
+
+.cart-item-title {
+    font-weight: 700;
+}
+
+.cart-item-side {
+    text-align: right;
+    font-size: 14px;
+}
+
+.cart-remove {
+    margin-top: 4px;
+    background: none;
+    border: none;
+    color: #332E29;
+    font-size: 13px;
+    font-weight: 400;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .cart-popup {
+        top: 180px; /* menuerne står under logoet på mobil */
+        right: 16px;
+    }
+}

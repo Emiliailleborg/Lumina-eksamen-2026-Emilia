@@ -213,3 +213,133 @@ function reserveInfoSpace() {
 window.addEventListener('load', reserveInfoSpace);
 window.addEventListener('resize', reserveInfoSpace);
 reserveInfoSpace();
+
+// KURV
+
+const CART_KEY = 'lumina-cart';  // navnet kurven gemmes under i browseren
+const PRICE = 1995;              // pris pr. højttaler i DKK
+
+const cartToggle = document.getElementById('cart-toggle');
+const cartPopup = document.getElementById('cart-popup');
+const productBuyButton = document.querySelector('.product-buy');
+
+// Hent kurven fra browseren, så den huskes når man skifter side
+function loadCart() {
+  try {
+    return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+  } catch {
+    return [];
+  }
+}
+
+function saveCart() {
+  try {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  } catch {
+    // Hvis browseren ikke må gemme, virker kurven stadig indtil siden genindlæses
+  }
+}
+
+let cart = loadCart();
+
+// Læg den valgte farve i kurven (samme farve igen = antal +1)
+function addToCart() {
+  const selected = document.querySelector('.color-swatch[aria-pressed="true"]');
+  if (!selected) return;
+
+  const color = selected.dataset.color;
+  const existing = cart.find(item => item.color === color);
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({ color, image: selected.dataset.image, quantity: 1 });
+  }
+
+  saveCart();
+  updateCartCount();
+  renderCart();
+}
+
+function removeFromCart(color) {
+  cart = cart.filter(item => item.color !== color);
+  saveCart();
+  updateCartCount();
+  renderCart();
+}
+
+// Vis antal i menuen, fx "Kurv (2)"
+function updateCartCount() {
+  if (!cartToggle) return;
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+  cartToggle.textContent = count > 0 ? `Kurv (${count})` : 'Kurv';
+}
+
+// Byg indholdet i kurv-kortet
+function renderCart() {
+  if (!cartPopup) return;
+
+  if (cart.length === 0) {
+    cartPopup.innerHTML = '<p class="cart-empty">Din kurv er tom</p>';
+    return;
+  }
+
+  const items = cart.map(item => `
+    <div class="cart-item">
+      <img src="${item.image}" alt="Lumina Bloom i ${item.color}">
+      <div class="cart-item-info">
+        <p class="cart-item-title">Lumina Bloom</p>
+        <p>Farve: ${item.color}</p>
+        <p>Antal: ${item.quantity}</p>
+      </div>
+      <div class="cart-item-side">
+        <p class="cart-item-price">${PRICE * item.quantity} DKK</p>
+        <button type="button" class="cart-remove" data-color="${item.color}">Fjern</button>
+      </div>
+    </div>
+  `).join('');
+
+  const total = cart.reduce((sum, item) => sum + PRICE * item.quantity, 0);
+
+  cartPopup.innerHTML = `
+    ${items}
+    <div class="cart-total">
+      <span>I alt</span>
+      <span>${total} DKK</span>
+    </div>
+  `;
+}
+
+function setCartOpen(open) {
+  cartPopup.hidden = !open;
+  cartToggle.setAttribute('aria-expanded', open);
+  if (open) renderCart();
+}
+
+// Køb nu lægger højttaleren i kurven (beskeden vises af initBuyButtons)
+if (productBuyButton) {
+  productBuyButton.addEventListener('click', addToCart);
+}
+
+if (cartToggle && cartPopup) {
+  updateCartCount();
+
+  cartToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCartOpen(cartPopup.hidden);
+  });
+
+  // Klik inde i kortet lukker det ikke - kun "Fjern" gør noget
+  cartPopup.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const removeButton = e.target.closest('.cart-remove');
+    if (removeButton) removeFromCart(removeButton.dataset.color);
+  });
+
+  // Luk kortet ved klik udenfor eller Esc
+  document.addEventListener('click', () => setCartOpen(false));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setCartOpen(false);
+  });
+}
