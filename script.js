@@ -168,3 +168,22 @@ if (searchToggle && searchBar) {
 
   searchClose.addEventListener('click', closeSearch);
 }
+
+// FARVEVÆLGER
+
+const productImage = document.getElementById('product-image');
+const productColor = document.getElementById('product-color');
+const colorSwatches = document.querySelectorAll('.color-swatch');
+
+colorSwatches.forEach(swatch => {
+  swatch.addEventListener('click', () => {
+    // Kun den valgte cirkel ser trykket ind
+    colorSwatches.forEach(s => s.setAttribute('aria-pressed', 'false'));
+    swatch.setAttribute('aria-pressed', 'true');
+
+    // Skift farvenavn og billede
+    productColor.textContent = `Farve- ${swatch.dataset.color}`;
+    productImage.src = swatch.dataset.image;
+    productImage.alt = swatch.dataset.alt;
+  });
+});

@@ -6,6 +6,7 @@
     <title>Lumina Bloom</title>
     <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <!-- Søgefelt: åbnes af "Søg" i menuen -->
@@ -41,52 +42,44 @@
         </div>
     </section>
 
-<script src="script.js"></script>
 
-
-    <!-- PRODUCT CARDS SECTION -->
+    <!-- PRODUKTKORT: fylder hele skærmen -->
     <section class="products-section" id="produkter">
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img src="images/beigelumina.png" alt="Moonlight White">
-                </div>
-                <h3 class="product-title">Lumina Bloom højtaler</h3>
-                <p class="product-subtitle">Moonlight White</p>
-                <p class="product-price">DKK 1995</p>
-                <button class="buy-button">Køb nu</button>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="images/Greenspeaker.webp" alt="Lumina Bloom højttaler i grøn" id="product-image">
             </div>
 
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img src="images/blaacard.png" alt="Lavender Mist">
-                </div>
-                <h3 class="product-title">Lumina Bloom højtaler</h3>
-                <p class="product-subtitle">Lavender Mist</p>
-                <p class="product-price">DKK 1995</p>
-                <button class="buy-button lavender">Køb nu</button>
-            </div>
+            <div class="product-content">
+                <h2 class="product-title">Lumina Bloom</h2>
+                <p class="product-subtitle">Bluetooth højttaler</p>
+                <p class="product-price">1995 DKK</p>
 
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img src="images/greenlumina.png" alt="Sage Green">
-                </div>
-                <h3 class="product-title">Lumina Bloom højtaler</h3>
-                <p class="product-subtitle">Sage Green</p>
-                <p class="product-price">DKK 1995</p>
-                <button class="buy-button green">Køb nu</button>
-            </div>
+                <p class="product-text">
+                    Kraftfuld lyd i et blødt og minimalistisk design. Op til 18 timers spilletid, justerbart LED-lys og Social Connect.<br>
+                    Skabt til at dele musikken, hvor du er.
+                </p>
+                <a href="#" class="product-read-more">Læs mere</a> <!-- link tilføjes senere -->
 
-            <div class="product-card">
-                <div class="product-image-wrapper">
-                    <img src="images/dustyrose.png" alt="Dusty Rose">
+                <!-- Farvevælger: skifter farvenavn og billede -->
+                <p class="product-color" id="product-color">Farve- Sage Green</p>
+                <div class="color-swatches">
+                    <button type="button" class="color-swatch" style="background-color: #8CAF78;"
+                        data-color="Sage Green" data-image="images/Greenspeaker.webp" data-alt="Lumina Bloom højttaler i grøn"
+                        aria-label="Sage Green" aria-pressed="true"></button>
+                    <button type="button" class="color-swatch" style="background-color: #DFA093;"
+                        data-color="Dusty Rose" data-image="images/Redspeaker.webp" data-alt="Lumina Bloom højttaler i rosa"
+                        aria-label="Dusty Rose" aria-pressed="false"></button>
+                    <button type="button" class="color-swatch" style="background-color: #E0CDBB;"
+                        data-color="Moonlight White" data-image="images/Beigespeaker.webp" data-alt="Lumina Bloom højttaler i beige"
+                        aria-label="Moonlight White" aria-pressed="false"></button>
+                    <button type="button" class="color-swatch" style="background-color: #D0E4EA;"
+                        data-color="Lavender Mist" data-image="images/Bluespeaker.webp" data-alt="Lumina Bloom højttaler i lyseblå"
+                        aria-label="Lavender Mist" aria-pressed="false"></button>
                 </div>
-                <h3 class="product-title">Lumina Bloom højtaler</h3>
-                <p class="product-subtitle">Dusty Rose</p>
-                <p class="product-price">DKK 1995</p>
-                <button class="buy-button rose">Køb nu</button>
             </div>
         </div>
+    </section>
 
           <!-- PRODUKTINFORMATION SEKTION -->
     <section class="product-info-section">
@@ -109,8 +102,6 @@
                 </ul>
             </div>
         </div>
-    </section>
-
     </section>
 
     <section class="split-section">
@@ -203,8 +194,6 @@ Appen er gratis og tilgængelig i App Store og Google Play.</p>
             <img src="images/insta.svg" alt="">
         </div>
     </footer>
-  
-    <script src="script.js"></script>
-    
+
  </body>
 </html>
