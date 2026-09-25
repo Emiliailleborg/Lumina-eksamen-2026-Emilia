@@ -352,15 +352,20 @@ body {
     border-radius: 20px;
 }
 
+/* Fast ramme, så kortet ikke ændrer størrelse når billedet skifter */
 .product-image {
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 4 / 3;
+    margin: 0 auto;
 }
 
 .product-image img {
     width: 100%;
-    max-width: 600px;
-    height: auto;
+    height: 100%;
+    object-fit: contain; /* hele højttaleren vises inde i rammen */
+    transform: scale(var(--speaker-scale, 1)); /* udligner forskellig luft omkring højttalerne */
+    transition: transform 0.2s;
 }
 
 .product-content {

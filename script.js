@@ -185,5 +185,7 @@ colorSwatches.forEach(swatch => {
     productColor.textContent = `Farve- ${swatch.dataset.color}`;
     productImage.src = swatch.dataset.image;
     productImage.alt = swatch.dataset.alt;
+    // Skalering så alle højttalere ser lige store ud
+    productImage.style.setProperty('--speaker-scale', swatch.dataset.scale || 1);
   });
 });
