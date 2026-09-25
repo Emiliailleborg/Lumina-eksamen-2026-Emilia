@@ -474,8 +474,20 @@ body {
     display: block;
 }
 
+/* Venstre kolonne er lige så høj som billedet */
+.info-column {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Boksens højde sættes i script.js, så der altid er plads til fold ud-teksten */
 .info-content {
+    flex: 1; /* boksen fylder resten af kolonnens højde */
     color: #332E29;
+    background-color: #E8E4E1;
+    border-radius: 10px;
+    padding: 50px;
 }
 
 .info-title {
@@ -491,6 +503,33 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+/* Fold ud-boks: "+ Flere specifikationer og information" */
+.info-more {
+    margin-top: 10px;
+}
+
+.info-more summary {
+    font-style: italic;
+    font-size: 16px;
+    color: #332E29;
+    cursor: pointer;
+    list-style: none; /* skjul standard-pilen */
+    margin-bottom: 15px;
+}
+
+.info-more summary::-webkit-details-marker {
+    display: none; /* skjul standard-pilen i Safari */
+}
+
+.info-more summary::before {
+    content: "+ ";
+}
+
+/* Når boksen er foldet ud, skifter + til − */
+.info-more[open] summary::before {
+    content: "− ";
 }
 
 .info-list li {
@@ -520,6 +559,10 @@ body {
     
     .info-title {
         font-size: 2.5rem;
+    }
+
+    .info-content {
+        padding: 30px 24px;
     }
 }
 

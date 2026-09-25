@@ -189,3 +189,27 @@ colorSwatches.forEach(swatch => {
     productImage.style.setProperty('--speaker-scale', swatch.dataset.scale || 1);
   });
 });
+
+// PRODUKTINFORMATION: FOLD UD
+
+// Giv boksen plads til den udfoldede tekst fra start,
+// så sektionen ikke bliver højere når man folder ud
+const infoBox = document.querySelector('.info-content');
+const infoMore = document.querySelector('.info-more');
+
+function reserveInfoSpace() {
+  if (!infoBox || !infoMore) return;
+
+  const wasOpen = infoMore.open;
+  infoBox.style.minHeight = '';  // nulstil så vi måler den rigtige højde
+  infoMore.open = true;          // fold ud et øjeblik og mål
+  const openHeight = infoBox.offsetHeight;
+  infoMore.open = wasOpen;       // tilbage som før
+
+  infoBox.style.minHeight = `${openHeight}px`;
+}
+
+// Mål igen når billeder og skrifttyper er indlæst, og når vinduet ændrer størrelse
+window.addEventListener('load', reserveInfoSpace);
+window.addEventListener('resize', reserveInfoSpace);
+reserveInfoSpace();
