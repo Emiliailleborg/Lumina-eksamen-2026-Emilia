@@ -719,25 +719,22 @@ footer::after {
 }
 
 /* Footer content */
-/* Tre kolonner: nyhedsbrev til venstre, kundeservice i midten, Om Lumina til højre */
+/* Nyhedsbrev til venstre, derefter link-kolonnerne side om side (plads til en tredje) */
 .footer-content {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
     align-items: start; /* alle kolonner starter i toppen og flugter med logoet */
     gap: 60px;
     margin-bottom: 10px;
 }
 
-.footer-content > :last-child {
-    justify-self: end; /* Om Lumina ud til højre */
-}
 
-/* --- Kundeservice i midten --- */
-.footer-service {
+/* --- Link-kolonner i footeren (Kundeservice og Virksomheden) --- */
+.footer-links {
     text-align: left;
 }
 
-.footer-content .footer-service h3 {
+.footer-content .footer-links h3 {
     font-family: 'Antonio', sans-serif; /* samme font som de store overskrifter */
     font-weight: 700;
     font-size: 28px;
@@ -747,7 +744,7 @@ footer::after {
     margin-bottom: 16px;
 }
 
-.footer-service a {
+.footer-links a {
     color: #332E29;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 500; /* Medium til navigation */
@@ -755,7 +752,7 @@ footer::after {
     text-decoration: none;
 }
 
-.footer-service a:hover {
+.footer-links a:hover {
     text-decoration: underline;
 }
 
@@ -848,10 +845,6 @@ footer::after {
     .footer-content {
         grid-template-columns: 1fr;
         gap: 40px;
-    }
-
-    .footer-content > :last-child {
-        justify-self: start;
     }
 }
 
