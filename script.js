@@ -343,3 +343,33 @@ if (cartToggle && cartPopup) {
     if (e.key === 'Escape') setCartOpen(false);
   });
 }
+
+// NYHEDSBREV
+
+const newsletterForm = document.getElementById('newsletter-form');
+const newsletterPopup = document.getElementById('newsletter-popup');
+const newsletterPopupClose = document.getElementById('newsletter-popup-close');
+
+function closeNewsletterPopup() {
+  newsletterPopup.hidden = true;
+}
+
+if (newsletterForm && newsletterPopup) {
+  // Browseren tjekker selv at det er en gyldig mail (type="email" + required)
+  newsletterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    newsletterForm.reset();
+    newsletterPopup.hidden = false;
+    newsletterPopupClose.focus();
+  });
+
+  newsletterPopupClose.addEventListener('click', closeNewsletterPopup);
+
+  // Luk ved klik på den mørke baggrund eller Esc
+  newsletterPopup.addEventListener('click', (e) => {
+    if (e.target === newsletterPopup) closeNewsletterPopup();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeNewsletterPopup();
+  });
+}

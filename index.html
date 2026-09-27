@@ -149,6 +149,15 @@ Appen er gratis og tilgængelig i App Store og Google Play.</p>
         <div class="logo footer-logo">LUMINA</div>
 
         <div class="footer-content">
+            <!-- Nyhedsbrev: kolonne under logoet -->
+            <div class="newsletter">
+                <h3>Tilmeld dig nyhedsbrevet</h3>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" id="newsletter-email" placeholder="Din e-mail" aria-label="Din e-mail" required>
+                    <button type="submit" aria-label="Tilmeld nyhedsbrev">&rarr;</button>
+                </form>
+            </div>
+
             <div>
                 <h3>Kundeservice</h3>
                 <ul>
@@ -186,6 +195,15 @@ Appen er gratis og tilgængelig i App Store og Google Play.</p>
             <img src="images/insta.svg" alt="">
         </div>
     </footer>
+
+    <!-- Pop op når man har tilmeldt sig nyhedsbrevet -->
+    <div class="newsletter-popup" id="newsletter-popup" hidden>
+        <div class="newsletter-popup-card" role="dialog" aria-modal="true" aria-labelledby="newsletter-popup-title">
+            <button type="button" class="newsletter-popup-close" id="newsletter-popup-close" aria-label="Luk">&times;</button>
+            <p class="newsletter-popup-title" id="newsletter-popup-title">Velkommen til</p>
+            <p>Din mail er nu tilmeldt vores nyhedsbrev</p>
+        </div>
+    </div>
 
  </body>
 </html>
