@@ -693,10 +693,17 @@ footer {
   position: relative;
   box-sizing: border-box;
   padding: 50px 120px 50px 70px;
+  min-height: 400px; 
   background-color: #bfb2a0;
   color: #332E29;
   overflow: hidden;
   margin: 0 auto;
+}
+
+/* Logo øverst til venstre: samme som i headeren, bare sort */
+.footer-logo {
+    color: #000000;
+    margin-bottom: 30px;
 }
 
 /* Footer content */
