@@ -714,21 +714,54 @@ footer::after {
 /* Logo øverst til venstre: samme som i headeren, bare sort */
 .footer-logo {
     color: #000000;
+    line-height: 1;
     margin-bottom: 30px;
 }
 
 /* Footer content */
+/* Tre kolonner: nyhedsbrev til venstre, kundeservice i midten, Om Lumina til højre */
 .footer-content {
-    display: flex;
-    gap: 120px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start; /* alle kolonner starter i toppen og flugter med logoet */
+    gap: 60px;
     margin-bottom: 10px;
+}
+
+.footer-content > :last-child {
+    justify-self: end; /* Om Lumina ud til højre */
+}
+
+/* --- Kundeservice i midten --- */
+.footer-service {
+    text-align: left;
+}
+
+.footer-content .footer-service h3 {
+    font-family: 'Antonio', sans-serif; /* samme font som de store overskrifter */
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin-bottom: 16px;
+}
+
+.footer-service a {
+    color: #332E29;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 500; /* Medium til navigation */
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.footer-service a:hover {
+    text-decoration: underline;
 }
 
 /* --- Nyhedsbrev i footeren --- */
 .newsletter {
-    flex: 1; /* tager pladsen til venstre, så de andre kolonner rykkes til højre */
     max-width: 420px;
-    margin-right: auto;
 }
 
 .newsletter-form {
@@ -811,13 +844,14 @@ footer::after {
 }
 
 @media (max-width: 900px) {
+    /* På mobil og tablet står kolonnerne under hinanden */
     .footer-content {
-        flex-wrap: wrap;
+        grid-template-columns: 1fr;
         gap: 40px;
     }
 
-    .newsletter {
-        flex-basis: 100%;
+    .footer-content > :last-child {
+        justify-self: start;
     }
 }
 
