@@ -700,6 +700,17 @@ footer {
   margin: 0 auto;
 }
 
+/* Sort linje over bundlinjen (betaling, copyright, sociale ikoner) */
+footer::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;       /* hele footerens bredde */
+    bottom: 60px;   /* lige over ikonerne og copyright */
+    height: 1px;
+    background-color: #000000;
+}
+
 /* Logo øverst til venstre: samme som i headeren, bare sort */
 .footer-logo {
     color: #000000;
