@@ -26,6 +26,11 @@ body {
   padding: 20px var(--gutter) 0;
 }
 
+/* Sektionerne må aldrig klemmes sammen (ellers forsvinder fx footeren) */
+body > * {
+  flex-shrink: 0;
+}
+
         /* --- Hero --- */
         .hero {
             min-height: 100vh;
@@ -778,13 +783,6 @@ footer::after {
     cursor: pointer;
 }
 
-@media (max-width: 900px) {
-    /* På mobil og tablet står kolonnerne under hinanden */
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-}
 
 .footer-content h3 {
     font-size: 17px;
@@ -1163,23 +1161,71 @@ mark.search-hit.current {
     .gallery-section {
         padding: 40px 0;
     }
+}
 
-    /* Footer: mindre luft, og betalingsikoner over copyright så de ikke overlapper */
+/* =========================================================
+   FOOTER PÅ MOBIL OG TABLET (under 900px)
+   Står sidst, så den overskriver footerens almindelige regler
+   ========================================================= */
+@media (max-width: 900px) {
+    /* --- Footer på mobil og tablet --- */
     footer {
-        padding: 40px var(--gutter) 110px;
+        padding: 40px var(--gutter) 20px;
+        min-height: auto;
     }
 
+    /* Nyhedsbrev i fuld bredde, Kundeservice og Virksomheden side om side */
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px;
+        row-gap: 32px;
+    }
+
+    .newsletter,
+    .footer-social {
+        grid-column: 1 / -1; /* fuld bredde */
+    }
+
+    .newsletter {
+        max-width: none;
+    }
+
+    .footer-content .footer-links h3 {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    /* Sociale medier på en række i stedet for under hinanden */
+    .footer-social ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 24px;
+    }
+
+    /* Bundlinjen følger med indholdet i stedet for faste afstande fra bunden */
     footer::after {
-        bottom: 76px;
+        display: none;
+    }
+
+    .payment-icons,
+    footer .copyright {
+        position: static;
+        transform: none;
+        text-align: center;
     }
 
     .payment-icons {
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 36px;
+        margin: 32px calc(-1 * var(--gutter)) 0; /* stregen går helt ud til kanterne */
+        padding-top: 20px;
+        border-top: 1px solid #000000;
     }
 
     .payment-icons img {
+        display: inline-block;
         height: 26px;
+    }
+
+    footer .copyright {
+        margin-top: 12px;
     }
 }
