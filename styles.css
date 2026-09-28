@@ -36,6 +36,13 @@ body {
             position: relative; /* så bundlinjen kan placeres i bunden */
         }
 
+        /* Skærme i højformat (fx mobil) ser kun midten af hero-billedet.
+        @media (max-aspect-ratio: 8/9) {
+            .hero {
+                background-image: url('images/hero-mobil.webp');
+            }
+        }
+
         /* Bundlinje: knap nede til venstre, stjerner nede til højre */
         .hero-bottom {
             position: absolute;
@@ -898,7 +905,7 @@ color: #332E29;
   transform: translateX(-50%) translateY(0);
 }
 
-/* Smaller devices: move toast slightly up */
+/* Smaller devices:  */
 @media (max-width: 480px) {
   .cart-toast { bottom: 18px; padding: 10px 14px; font-size: 14px; }
 }
@@ -1042,7 +1049,6 @@ mark.search-hit.current {
 
 /* =========================================================
    MOBIL (under 768px)
-   Samlet her, så det er let at finde
    ========================================================= */
 @media (max-width: 768px) {
 
