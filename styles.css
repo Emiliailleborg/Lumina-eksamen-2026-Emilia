@@ -756,6 +756,29 @@ footer::after {
     text-decoration: underline;
 }
 
+/* Sociale medier: ikon før teksten */
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-social svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor; /* ikonerne får tekstens farve */
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.footer-social svg .icon-fill {
+    fill: currentColor;
+    stroke: none;
+}
+
 /* --- Nyhedsbrev i footeren --- */
 .newsletter {
     max-width: 420px;
