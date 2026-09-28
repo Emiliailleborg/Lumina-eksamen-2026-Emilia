@@ -373,3 +373,38 @@ if (newsletterForm && newsletterPopup) {
     if (e.key === 'Escape') closeNewsletterPopup();
   });
 }
+
+// BURGERMENU (MOBIL)
+
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+function setMenuOpen(open) {
+  mobileMenu.hidden = !open;
+  menuToggle.setAttribute('aria-expanded', open);
+  menuToggle.setAttribute('aria-label', open ? 'Luk menu' : 'Åbn menu');
+}
+
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation(); // så klikket ikke lukker menuen igen med det samme
+    setMenuOpen(mobileMenu.hidden);
+  });
+
+  // Luk menuen når man vælger et link
+  mobileMenu.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (e.target.closest('a')) setMenuOpen(false);
+  });
+
+  // Luk ved klik udenfor menuen
+  document.addEventListener('click', () => setMenuOpen(false));
+
+  // Luk med Esc og sæt fokus tilbage på burgerknappen
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenu.hidden) {
+      setMenuOpen(false);
+      menuToggle.focus();
+    }
+  });
+}
