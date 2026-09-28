@@ -1011,47 +1011,61 @@ background-color: #f5f0e6;
 
 .title {
     font-size: 72px;
+    line-height: 1;      /* ingen ekstra luft over bogstaverne, så toppen flugter med billedet */
     letter-spacing: 0.01em;
-    margin-bottom: 40px;
+    text-align: left;    /* står lige over teksten */
+    margin-bottom: 16px;
     color: #332E29;
 }
 
 .content {
     display: flex;
-    flex-direction: row-reverse;
     gap: 40px;
     align-items: flex-start;
-}
-
-.image-left {
-    width: 30%;
-    border-radius: 25px;
-    object-fit: cover;
+    margin-top: 50px; /* luft ned fra tilbage-knappen */
 }
 
 .text-block {
-    width: 50%;
+    width: min-content; /* teksten bliver aldrig bredere end første linje */
     font-size: 18px;
     line-height: 1.6;
 color: #332E29;
+}
+
+/* Første linje slutter efter "ikke kun noget," og bestemmer kolonnens bredde */
+.text-block-line {
+    white-space: nowrap;
+}
+
+/* Billede i højre side af Om os */
+.about-image {
+    flex: 1;       /* fylder resten af bredden ved siden af teksten */
+    min-width: 0;
+    width: 100%;
+    height: auto;
+    border: 2px solid #332E29; /* stroke i tekstfarven */
+    border-radius: 10px;
+}
+
+/* På mobil må linjen gerne ombrydes, så teksten ikke går ud over skærmen */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column; /* billedet under teksten */
+    }
+
+    .text-block {
+        width: auto;
+    }
+
+    .text-block-line {
+        white-space: normal;
+    }
 }
 
 .text-block h3 {
     margin-top: 20px;
     font-size: 22px;
     color: #332E29;
-}
-
-.product-section {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-}
-
-.image-right {
-    width: 45%;
-    border-radius: 25px;
-    object-fit: cover;
 }
 
 /* Toast / pop-up if purchase */
