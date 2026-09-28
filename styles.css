@@ -1,4 +1,14 @@
 /* --- Grundopsætning --- */
+:root {
+  --gutter: 40px; /* luft i siderne af siden */
+}
+
+@media (max-width: 768px) {
+  :root {
+    --gutter: 20px; /* mindre luft på mobil */
+  }
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -13,14 +23,14 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding: 20px 40px 0;
+  padding: 20px var(--gutter) 0;
 }
 
         /* --- Hero --- */
         .hero {
             min-height: 100vh;
             min-height: 100svh; /* tager højde for adresselinjen på mobil */
-            margin: -20px -40px 0; /* ophæver body-padding, så billedet går helt ud til kanten */
+            margin: -20px calc(-1 * var(--gutter)) 0; /* ophæver body-padding, så billedet går helt ud til kanten */
             padding: 20px 50px;
             background: url('images/hero.webp') center / cover no-repeat;
             position: relative; /* så bundlinjen kan placeres i bunden */
@@ -298,7 +308,7 @@ body {
 
 /* --- Productinformation Section --- */
 .product-info-section {
-    margin: 0 -40px; /* ophæver body-padding, så billedet kan gå helt ud til kanten */
+    margin: 0 calc(-1 * var(--gutter)); /* ophæver body-padding, så billedet kan gå helt ud til kanten */
     padding: 0 0 0 50px; /* ingen luft top og bund: sektionen stopper hvor billedet stopper */
     background-color: #C2BFBD;
 }
@@ -421,7 +431,7 @@ body {
   justify-content: space-between;
   gap: 40px;
   /* ingen max-width, så teksten flugter med de andre afsnit */
-  margin: 80px -40px; /* luft over og under, og ophæver body-padding i siderne */
+  margin: 80px calc(-1 * var(--gutter)); /* luft over og under, og ophæver body-padding i siderne */
   padding: 0 150px; /* 150px fra kanten i hver side */
 }
 
@@ -470,7 +480,7 @@ body {
     flex-direction: column;
     text-align: center;
     padding: 0 20px;
-    margin: 40px -40px;
+    margin: 40px calc(-1 * var(--gutter));
   }
   .split-text p {
     margin: 0 auto 24px;
@@ -517,7 +527,7 @@ footer {
   background-color: #C2BFBD; /* samme som produktinformation */
   color: #332E29;
   overflow: hidden;
-  margin: 0 -40px; /* ophæver body-padding, så footeren går helt ud til siderne */
+  margin: 0 calc(-1 * var(--gutter)); /* ophæver body-padding, så footeren går helt ud til siderne */
 }
 
 /* Sort linje over bundlinjen (betaling og copyright) */
@@ -729,11 +739,6 @@ footer::after {
   width: auto;
 }
 
-/* Mobile adjustment — move closer to the edge */
-@media (max-width: 480px) {
-  .payment-icons { left: 16px; }
-  .payment-icons img { height: 26px; }
-}
 
 /* Copyright */
 footer .copyright {
@@ -1032,5 +1037,76 @@ mark.search-hit.current {
     .cart-popup {
         top: 180px; /* menuerne står under logoet på mobil */
         right: 16px;
+    }
+}
+
+/* =========================================================
+   MOBIL (under 768px)
+   Samlet her, så det er let at finde
+   ========================================================= */
+@media (max-width: 768px) {
+
+    /* Hero: mindre luft og tekst, så det passer på en smal skærm */
+    .hero {
+        padding: 20px var(--gutter);
+    }
+
+    .hero-text {
+        font-size: 20px;
+    }
+
+    .hero-btn {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+
+    /* Overskrifter: 48px er for stort på mobil */
+    .product-title,
+    .info-title,
+    .headline-sub,
+    .gallery-section h1 {
+        font-size: 34px;
+    }
+
+    .title {
+        font-size: 48px;
+    }
+
+    /* Produktinformation: tekst med luft, billede i fuld bredde under */
+    .product-info-section {
+        padding: 0;
+    }
+
+    .info-column {
+        padding: 40px var(--gutter) 0;
+    }
+
+    /* Social Connect: "Nyhed" centreret som resten af teksten */
+    .split-text h1 {
+        text-align: center;
+    }
+
+    /* Følg os: mindre luft i siderne */
+    .gallery-section {
+        padding: 40px 0;
+    }
+
+    /* Footer: mindre luft, og betalingsikoner over copyright så de ikke overlapper */
+    footer {
+        padding: 40px var(--gutter) 110px;
+    }
+
+    footer::after {
+        bottom: 76px;
+    }
+
+    .payment-icons {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 36px;
+    }
+
+    .payment-icons img {
+        height: 26px;
     }
 }
