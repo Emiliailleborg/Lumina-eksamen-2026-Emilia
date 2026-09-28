@@ -891,7 +891,7 @@ footer::after {
 .payment-icons {
   position: absolute;
   left: 70px;            
-  bottom: 1px;          
+  bottom: 12px; /* under den sorte streg */
   display: flex;
   gap: 15px;
   margin: 0;
@@ -900,12 +900,12 @@ footer::after {
   transform: none;       
 }
 
+/* Ét billede med alle betalingsikoner, under stregen i venstre hjørne */
 .payment-icons img {
-  height: 30px;
+  display: block;
+  height: 36px;
+  width: auto;
 }
-
-.payment-icons img[src*="mp.png"]  { height: 40px; }
-.payment-icons img[src*="applepay.png"] { height: 30px; }
 
 /* Mobile adjustment — move closer to the edge */
 @media (max-width: 480px) {
