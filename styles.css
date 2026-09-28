@@ -37,14 +37,18 @@ body > * {
             min-height: 100svh; /* tager højde for adresselinjen på mobil */
             margin: -20px calc(-1 * var(--gutter)) 0; /* ophæver body-padding, så billedet går helt ud til kanten */
             padding: 20px 50px;
-            background: url('images/hero.webp') center / cover no-repeat;
+            /* Mørk gradient ligger som ekstra baggrundslag over billedet (men under al tekst),
+               så den hvide tekst får nok kontrast (WCAG AA). Mørkest øverst og nederst, hvor teksten står. */
+            --hero-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.25) 35%, rgba(0, 0, 0, 0.25) 60%, rgba(0, 0, 0, 0.45) 100%);
+            background: var(--hero-overlay), url('images/hero.webp') center / cover no-repeat;
+            background-color: #3D3529; /* reservefarve hvis billedet ikke loader – bruges også af WAVE til kontrasttjek */
             position: relative; /* så bundlinjen kan placeres i bunden */
         }
 
-        /* Skærme i højformat (fx mobil) ser kun midten af hero-billedet.
+        /* Skærme i højformat (fx mobil) ser kun midten af hero-billedet. */
         @media (max-aspect-ratio: 8/9) {
             .hero {
-                background-image: url('images/hero-mobil.webp');
+                background-image: var(--hero-overlay), url('images/hero-mobil.webp');
             }
         }
 
