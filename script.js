@@ -286,7 +286,7 @@ function renderCart() {
 
   const items = cart.map(item => `
     <div class="cart-item">
-      <img src="${item.image}" alt="Lumina Bloom i ${item.color}">
+      <img loading="lazy" src="${item.image}" alt="Lumina Bloom i ${item.color}">
       <div class="cart-item-info">
         <p class="cart-item-title">Lumina Bloom</p>
         <p>Farve: ${item.color}</p>

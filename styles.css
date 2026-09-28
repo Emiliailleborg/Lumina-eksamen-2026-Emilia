@@ -454,7 +454,7 @@ body {
 /* --- Productinformation Section --- */
 .product-info-section {
     margin: 0 -40px; /* ophæver body-padding, så billedet kan gå helt ud til kanten */
-    padding: 80px 0 80px 50px; /* luft til teksten i venstre side, ingen i højre */
+    padding: 0 0 0 50px; /* ingen luft top og bund: sektionen stopper hvor billedet stopper */
     background-color: #C2BFBD;
 }
 
@@ -465,24 +465,27 @@ body {
     align-items: center;
 }
 
+/* Billedet går fra top til bund af sektionen */
 .info-image {
+    align-self: stretch;
     display: flex;
     justify-content: flex-end; /* billedet helt ud til højre kant */
-    align-items: center;
 }
 
 .info-image img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
+    width: 100%; /* fylder hele kolonnen, så billedet skal beskæres mindre */
+    height: 100%;
+    object-fit: cover; /* fylder hele højden uden at blive strakt */
+    object-position: 30% center; /* beskær mest fra højre, så fingrene og højttaleren ikke skæres væk */
     display: block;
 }
 
-/* Venstre kolonne er lige så høj som billedet */
+/* Venstre kolonne er lige så høj som billedet, med luft top og bund til teksten */
 .info-column {
     align-self: stretch;
     display: flex;
     flex-direction: column;
+    padding: 50px 0;
 }
 
 /* Boksens højde sættes i script.js, så der altid er plads til fold ud-teksten */
