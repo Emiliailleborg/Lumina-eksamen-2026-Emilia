@@ -22,18 +22,33 @@
         <p class="visually-hidden">Billede: Kvinde med en blå Lumina højttaler på hovedet</p>
 
         <header>
-            <nav class="hero-nav">
+            <!-- Burgerknap: vises kun på mobil -->
+            <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Åbn menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="hero-nav hero-nav-left">
                 <a href="#produkter">Shop</a>
                 <a href="about.html">Om os</a>
                 <a href="#produktinfo">Produktinfo</a>
             </nav>
             <div class="logo">LUMINA</div>
             <nav class="hero-nav hero-nav-right">
-                <a href="#kontakt">Kontakt</a>
+                <a href="#kontakt" class="nav-contact">Kontakt</a>
                 <a href="#" id="search-toggle" aria-controls="search-bar">Søg</a>
                 <a href="#" id="cart-toggle" aria-controls="cart-popup" aria-expanded="false">Kurv</a>
             </nav>
         </header>
+
+        <!-- Mobilmenu: åbnes af burgerknappen -->
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Menu" hidden>
+            <a href="#produkter">Shop</a>
+            <a href="about.html">Om os</a>
+            <a href="#produktinfo">Produktinfo</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
 
         <!-- Kurv: lille kort der åbnes af "Kurv" i menuen -->
         <div class="cart-popup" id="cart-popup" hidden></div>

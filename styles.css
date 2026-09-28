@@ -147,25 +147,83 @@ body {
             justify-self: end;
         }
 
+        /* --- Burgermenu (kun mobil) --- */
+        .menu-toggle,
+        .mobile-menu {
+            display: none; /* skjult på computer */
+        }
+
         @media (max-width: 768px) {
-            /* Menuerne under logoet på mobil, så der er plads */
-            header {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 16px;
+            /* Mobil: [burger]  LUMINA  [Søg] [Kurv] */
+            .hero-nav-left,
+            .nav-contact {
+                display: none; /* ligger i burgermenuen i stedet */
             }
 
             .logo {
-                order: -1;
+                font-size: 2.5rem;
             }
 
             .hero-nav {
-                gap: 24px;
+                gap: 16px;
             }
 
             .hero-nav a {
                 font-size: 18px;
+                padding: 12px 0; /* større trykflade (ca. 44px høj) */
+            }
+
+            .menu-toggle {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 6px;
+                width: 44px;
+                height: 44px;
+                padding: 10px;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* De tre streger i burgeren */
+            .menu-toggle span {
+                display: block;
+                height: 2px;
+                background-color: #ffffff;
+                border-radius: 2px;
+            }
+
+            .mobile-menu {
+                position: absolute;
+                top: 90px;
+                left: var(--gutter);
+                right: var(--gutter);
+                display: flex;
+                flex-direction: column;
+                padding: 8px 20px;
+                background-color: #E8E4E1;
+                border-radius: 10px;
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+                z-index: 900;
+            }
+
+            .mobile-menu[hidden] {
+                display: none;
+            }
+
+            .mobile-menu a {
+                display: block;
+                padding: 12px 0; /* hvert link er ca. 48px højt */
+                color: #332E29;
+                font-size: 20px;
+                font-weight: 500; /* Medium til navigation */
+                text-decoration: none;
+                border-bottom: 1px solid rgba(51, 46, 41, 0.15);
+            }
+
+            .mobile-menu a:last-child {
+                border-bottom: none;
             }
         }
 
@@ -485,12 +543,12 @@ body {
 @media (max-width: 900px) {
   .split-section {
     flex-direction: column;
-    text-align: center;
+    align-items: stretch; /* teksten fylder bredden og står venstrestillet */
     padding: 0 20px;
     margin: 40px calc(-1 * var(--gutter));
   }
   .split-text p {
-    margin: 0 auto 24px;
+    margin: 0 0 24px;
   }
   /* På mobil må første linje gerne ombrydes, så teksten ikke går ud over skærmen */
   .split-text {
@@ -1042,7 +1100,7 @@ mark.search-hit.current {
 
 @media (max-width: 768px) {
     .cart-popup {
-        top: 180px; /* menuerne står under logoet på mobil */
+        top: 90px; /* lige under headeren på mobil */
         right: 16px;
     }
 }
@@ -1085,11 +1143,6 @@ mark.search-hit.current {
 
     .info-column {
         padding: 40px var(--gutter) 0;
-    }
-
-    /* Social Connect: "Nyhed" centreret som resten af teksten */
-    .split-text h1 {
-        text-align: center;
     }
 
     /* Følg os: mindre luft i siderne */
