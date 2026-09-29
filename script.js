@@ -316,7 +316,7 @@ function setCartOpen(open) {
   if (open) renderCart();
 }
 
-// Køb nu lægger højttaleren i kurven (beskeden vises af initBuyButtons)
+// Køb nu lægger højttaleren i kurven 
 if (productBuyButton) {
   productBuyButton.addEventListener('click', addToCart);
 }
