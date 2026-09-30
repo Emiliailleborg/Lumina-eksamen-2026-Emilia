@@ -534,12 +534,18 @@ body > * {
   white-space: nowrap;
 }
 
-/* "Nyhed" over Social Connect */
-.split-text h1 {
-  font-size: 1rem; 
+/* "Nyhed" over Social Connect (en lille etiket, ikke en overskrift) */
+.split-text .headline-left {
+  font-family: 'Antonio', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
   color: #9E2685;
+  opacity: 0.9;
   text-align: left;
-  margin-bottom: 6px; /* tæt på overskriften */
+  margin: 0.67em 0 6px; /* tæt på overskriften */
 }
 
 .split-text p {
@@ -589,9 +595,13 @@ body > * {
     padding: 40px 20px;
 }
 
-.gallery-section h1 {
+.gallery-section h2 {
     text-align: center;
     font-size: 48px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    opacity: 0.9;
+    margin-top: 0.67em;
     margin-bottom: 0;
     color: #332E29;
     position: relative;
@@ -949,8 +959,10 @@ color: #332E29;
     }
 }
 
-.text-block h3 {
+.text-block h2 {
+    font-family: inherit; /* samme font som brødteksten */
     margin-top: 20px;
+    margin-bottom: 1em;
     font-size: 22px;
     color: #332E29;
 }
@@ -1144,7 +1156,7 @@ mark.search-hit.current {
     .product-title,
     .info-title,
     .headline-sub,
-    .gallery-section h1 {
+    .gallery-section h2 {
         font-size: 34px;
     }
 
